@@ -4,23 +4,34 @@ applyTo: "**/*.php"
 
 ## Bitrix PHP Variable Naming Conventions
 
-### Имена переменных
+### Variable name suffixes
 
-- *Element - элемент инфоблока, например $lstElements или $dctElement
-- *Product - товар, элемент торгового каталога, имеющий цену, когда не важно идет ли речь об обычном товаре или торговом предложении
-- *Offer - торговое предложение
-- *Good - товар имеющий торговые предложения
-- *Section - раздел инфоблока
-- *Deal - сделка CRM
-- *Company - компания CRM
-- *Contact - контакт CRM
-- *Lead - лид CRM
-- *User - пользователь
-- *Order - заказ
-- *Price - цена
-- *Filter - фильтр для выборки данных из БД
+Variables storing Bitrix entities should use these suffixes:
+- `*Element` — infoblock element: `$lstElements`, `$dctElement`
+- `*Product` — catalog product (item or offer with price): `$refProducts`
+- `*Offer` — catalog offer (SKU): `$lstOffers`
+- `*Good` — product with offers: `$dctGood`
+- `*Section` — infoblock section: `$lstSections`
+- `*Deal` — CRM deal: `$dctDeal`
+- `*Company` — CRM company: `$refCompanies`
+- `*Contact` — CRM contact: `$lstContacts`
+- `*Lead` — CRM lead: `$dctLead`
+- `*User` — user: `$refUsers`
+- `*Order` — order: `$dctOrder`
+- `*Price` — price: `$Price` (scalar) or `$lstPrices` (array)
+- `*Filter` — DB filter array: `$dctFilter`
 
-### Разметка элементов html
+## HTML data attributes for Bitrix entities
 
-Для указания id сущностей в dataset html элементов используется следующий шаблон: bx-{модуль}-{сущность}-id. Например для id раздела инфоблока имя атрибута html будет таким: *data-bx-iblock-section-id*, а для id элемента:  *data-bx-iblock-element-id*, для указания id сделки: *data-bx-crm-deal-id*. Более общий шаблон выглядит так: bx-{модуль}-{сущность}-{имяПоля}, т.е. если необходимо указать код, можно использовать атрибут *data-bx-iblock-element-code*.  
-Если необходимо указывать значения из собственных таблиц не являющихся частью модуля, то в качестве имени модуля, можно использовать *app*, с собственными именами сущностей или *orm* с именами таблиц. Однако обратите внимание, что использование шаблона bx-orm-{имяТаблицы}-{имяПоля} раскрывает информацию об именах таблиц проекта. В целом это не должно являться угрозой безопасности, но может быть нежелательно.
+Use pattern: `data-bx-{module}-{entity}-{field}`
+
+### Standard modules
+- Infoblock section ID: `data-bx-iblock-section-id="123"`
+- Infoblock element ID: `data-bx-iblock-element-id="456"`
+- Infoblock element code: `data-bx-iblock-element-code="my_product"`
+- CRM deal ID: `data-bx-crm-deal-id="789"`
+
+### Custom entities
+- Use `app` as module name: `data-bx-app-{entity}-{field}`
+- Or use `orm` with table name: `data-bx-orm-{table}-{field}`
+- Note: `orm` pattern exposes database table names in HTML (usually not a security risk, but may be undesirable)
