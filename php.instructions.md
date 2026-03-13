@@ -35,7 +35,7 @@ applyTo: "**/*.php"
 ## Code style (PSR-12 based, with exceptions)
 
 ### General
-- Prefer early return over deep nesting.
+- Prefer a single `return` at the end of a function. Early return is acceptable only for guard clauses at the very beginning (e.g. empty input check), but avoid multiple returns in the middle of logic.
 
 ### Braces and blocks
 - Use curly braces `{}` for all control structures containing PHP code.
