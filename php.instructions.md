@@ -36,6 +36,7 @@ applyTo: "**/*.php"
 
 ### General
 - Prefer a single `return` at the end of a function. Early return is acceptable only for guard clauses at the very beginning (e.g. empty input check), but avoid multiple returns in the middle of logic.
+- Write single-statement `if` blocks on one line without curly braces when the body is a jump statement: `if (!$Id) return;`, `if ($Done) continue;`, `if ($Error) break;`, `if ($Loaded) include $File;`
 
 ### Braces and blocks
 - Use curly braces `{}` for all control structures containing PHP code.
