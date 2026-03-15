@@ -43,6 +43,8 @@ applyTo: "**/*.php"
 - Use alternative syntax (`:` / `end*`) when the block contains HTML:
   `if ($Condition): ?> ... <?php endif;`
   `foreach ($lst as $Item): ?> ... <?php endforeach;`
+- Opening curly brace `{` of control structures (`if`, `foreach`, `while`, etc.) goes on the **same line**: `if ($Condition) {`
+- Use 4 spaces for indentation. Never use tabs or 8-space indentation.
 
 ### Spacing
 - Add a space between function/method **name and `(`** in declarations:
