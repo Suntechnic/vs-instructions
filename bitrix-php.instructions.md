@@ -2,6 +2,12 @@
 applyTo: "**/*.php"
 ---
 
+## PHP tags
+- Use short echo tag `<?=` instead of `<?php echo`.
+- Use full `<?php` tag for logic blocks (conditions, loops, function calls).
+- Never use short open tag `<?` alone (without `=`).
+- No spaces after `<?=` and before `?>`: `<?=$Product['NAME']?>`
+
 ## Bitrix PHP Variable Naming Conventions
 
 ### Variable name suffixes
