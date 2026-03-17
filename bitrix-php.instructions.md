@@ -5,8 +5,9 @@ applyTo: "**/*.php"
 ## PHP tags
 - Use short echo tag `<?=` instead of `<?php echo`.
 - Use full `<?php` tag for logic blocks (conditions, loops, function calls).
-- Never use short open tag `<?` alone (without `=`).
 - No spaces after `<?=` and before `?>`: `<?=$Product['NAME']?>`
+- `short_open_tag` is enabled in this project. Do not replace `<?` with `<?php` in existing code — legacy templates and Bitrix core files may use `<?` and it is acceptable.
+- When refactoring, focus on correct brace/tag pairs (`{}`, `if/endif`, `foreach/endforeach`) rather than changing opening tag types.
 
 ## Bitrix PHP Variable Naming Conventions
 
