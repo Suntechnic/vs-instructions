@@ -42,3 +42,23 @@ Use pattern: `data-bx-{module}-{entity}-{field}`
 - Use `app` as module name: `data-bx-app-{entity}-{field}`
 - Or use `orm` with table name: `data-bx-orm-{table}-{field}`
 - Note: `orm` pattern exposes database table names in HTML (usually not a security risk, but may be undesirable)
+
+## PHPDoc blocks for Bitrix global variables
+
+Use `@var` instead of `@global` in doc blocks for Bitrix global variables.
+
+```php
+// Correct:
+/**
+ * @var CMain $APPLICATION
+ * @var CUser $USER
+ * @var CDatabase $DB
+ */
+
+// Incorrect:
+/**
+ * @global CMain $APPLICATION
+ * @global CUser $USER
+ * @global CDatabase $DB
+ */
+```
