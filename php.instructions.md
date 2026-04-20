@@ -20,7 +20,7 @@ applyTo: "**/*.php"
 - `$rdb*` — iterable DB result: `$rdbPrices = \Bitrix\Catalog\Model\Price::getList($dctFilter);`
 
 ### Unused variable
-- Always use `$_` for unused loop variables: `foreach ($ref as $Key => $_)`
+- Always use `$_` for unused variables: `foreach ($ref as $Key => $_)`
 
 ## Comments
 - Write all comments in Russian.
